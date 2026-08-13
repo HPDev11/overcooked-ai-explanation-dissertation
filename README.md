@@ -84,9 +84,24 @@ Each run generated a detailed per-timestep CSV trace and a run-level JSON summar
 | `my_scripts/plot_results.py` | Generates plots from aggregated results |
 | `my_scripts/human_study_runner.py` | Interactive participant-facing runner implemented but not deployed |
 
-## Results
+## Key Results
 
-The `results/` folder contains the main evaluation and secondary pilot outputs used for the dissertation tables and figures.
+The main evaluation consisted of 30 matched seeded runs per condition on the `cramped_room` layout. Values below are reported as mean ± 95% confidence interval.
+
+| Metric | Explanation (`exp`) | No Explanation (`noexp`) |
+| --- | ---: | ---: |
+| Total game reward | **382.00 ± 2.18** | 370.67 ± 3.63 |
+| Soups delivered | **19.10 ± 0.11** | 18.53 ± 0.18 |
+| Time to first delivery | **44.10 ± 0.59** | 46.77 ± 1.04 |
+| Mean delivery interval | **40.40 ± 0.23** | 41.71 ± 0.26 |
+| Blocked-partner events | **2.10 ± 0.57** | 9.17 ± 3.02 |
+| Average idle rate | **0.638 ± 0.001** | 0.650 ± 0.002 |
+| Collisions | **0.70 ± 0.25** | 1.90 ± 1.28 |
+| Productive actions | **178.97 ± 0.90** | 173.17 ± 1.28 |
+
+The explanation-enabled condition produced modest improvements in task throughput and stronger improvements in coordination quality. The clearest result was the reduction in blocked-partner events from 9.17 to 2.10 on average, alongside fewer collisions and slightly lower idle behaviour.
+
+These findings apply to the controlled proxy-simulator evaluation on `cramped_room` and should not be interpreted as direct evidence of improved coordination with real human participants.
 
 ## Notes
 
