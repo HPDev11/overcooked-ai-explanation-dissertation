@@ -102,7 +102,57 @@ The main evaluation consisted of 30 matched seeded runs per condition on the `cr
 The explanation-enabled condition produced modest improvements in task throughput and stronger improvements in coordination quality. The clearest result was the reduction in blocked-partner events from 9.17 to 2.10 on average, alongside fewer collisions and slightly lower idle behaviour.
 
 These findings apply to the controlled proxy-simulator evaluation on `cramped_room` and should not be interpreted as direct evidence of improved coordination with real human participants.
+## Running the Project
 
+### Prerequisites
+
+The project was developed using **Python 3.10**. To run the simulation pipeline, the environment must have:
+
+- Python 3.10
+- Overcooked-AI installed and importable as `overcooked_ai_py`
+- Matplotlib for result visualisation
+- OpenPyXL (optional) for XLSX result export
+
+The scripts should be run from the repository root.
+
+### Run the Main A/B Experiment
+
+The following command reproduces the configuration used for the main `cramped_room` evaluation:
+
+```bash
+python my_scripts/run_simulator_ab.py --layout cramped_room --horizon 800 --n_seeds 30 --seed_start 0 --mode both --goal_change_only --event_trigger --logs_dir logs/final_cramped_room
+```
+
+For each seed, the experiment runner automatically executes both the `noexp` and `exp` conditions.
+
+Each run produces:
+
+- A per-timestep CSV trace
+- A run-level summary JSON file
+
+### Aggregate Results
+
+After the experiment completes, aggregate the run-level summaries using:
+
+```bash
+python my_scripts/aggregate_results.py --input_dirs logs/final_cramped_room --out_dir results/final_cramped_room --write_xlsx
+```
+
+This generates:
+
+- `run_level_results.csv`
+- `results_table.csv`
+- `results_table.xlsx` if OpenPyXL is installed
+
+### Generate Plots
+
+Generate the result figures using:
+
+```bash
+python my_scripts/plot_results.py --results_csv results/final_cramped_room/results_table.csv --run_level_csv results/final_cramped_room/run_level_results.csv --layout cramped_room --mode both --goal_change_only True --event_trigger True --fig_dir figures
+```
+
+The plotting script generates condition-level comparison figures and selected per-run scatter plots.
 ## Notes
 
 This repository excludes virtual environment files, cache files, unnecessary intermediate development outputs and personal files.
