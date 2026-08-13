@@ -114,7 +114,11 @@ The project was developed using **Python 3.10**. To run the simulation pipeline,
 - OpenPyXL (optional) for XLSX result export
 
 The scripts should be run from the repository root.
+Install the Python dependencies from the repository root:
 
+```bash
+pip install -r requirements.txt
+```
 ### Run the Main A/B Experiment
 
 The following command reproduces the configuration used for the main `cramped_room` evaluation:
