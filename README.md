@@ -13,7 +13,25 @@ The system uses the Overcooked-AI benchmark and compares explanation-enabled and
 This repository contains the main implementation artefacts for my final-year dissertation:
 
 **Explaining AI Actions in Cooperative Human-AI Tasks Using the Overcooked Benchmark**
+## What I Built
 
+- **Natural-language explanation generation** – maps the scripted AI teammate's current goal and action into concise action-level, goal-level or combined explanations.
+- **Explanation-aware proxy human simulator** – models a cooperative partner that reacts to the current environment state and, when available, the AI teammate's communicated intent.
+- **Automated A/B experiment runner** – executes matched explanation-enabled and no-explanation trials across configurable random seeds and experiment settings.
+- **Per-timestep logging pipeline** – records actions, positions, held-object transitions, inferred events, rewards, explanations and coordination metrics to structured CSV files.
+- **Results aggregation pipeline** – converts run-level JSON summaries into condition-level statistics including means, standard deviations and 95% confidence intervals.
+- **Automated visualisation tooling** – generates report-ready plots from aggregated and run-level experimental results.
+- **Interactive human-study prototype** – provides a participant-facing Overcooked-AI interface with live explanation display and structured session logging.
+
+## Tech Stack
+
+- **Language:** Python 3.10
+- **AI / Simulation:** Overcooked-AI
+- **Data:** CSV, JSON
+- **Experimentation:** Seeded A/B evaluation, automated batch execution
+- **Analysis:** Statistical aggregation, mean, standard deviation and 95% confidence intervals
+- **Visualisation:** Automated result plotting
+- **Development Environment:** Windows, Python virtual environment
 ## Main files
 
 | File | Purpose |
