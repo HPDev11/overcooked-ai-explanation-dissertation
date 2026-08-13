@@ -1,6 +1,16 @@
-# Overcooked-AI Explanation Dissertation Code
+# Overcooked-AI Explanation Dissertation
 
-This repository contains the main implementation artefacts for my Year 3 dissertation:
+A Python-based evaluation framework investigating whether concise natural-language explanations of an AI teammate's goals and actions can improve coordination in cooperative Overcooked-AI tasks.
+
+The project combines a scripted AI teammate, goal/action-level explanation generation, an explanation-aware proxy human simulator, per-timestep logging, matched seeded A/B experiments, statistical aggregation and automated visualisation.
+
+## Project Overview
+
+Cooperative AI agents may perform effectively while still being difficult for a teammate to interpret. This project investigates whether exposing an AI teammate's current goal and action through concise natural-language explanations can improve cooperative coordination.
+
+The system uses the Overcooked-AI benchmark and compares explanation-enabled and no-explanation conditions through repeated, seeded experiments. Evaluation considers both task performance and coordination measures such as reward, delivery timing, collisions, idle behaviour and partner blocking.
+
+This repository contains the main implementation artefacts for my final-year dissertation:
 
 **Explaining AI Actions in Cooperative Human-AI Tasks Using the Overcooked Benchmark**
 
