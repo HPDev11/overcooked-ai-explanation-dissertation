@@ -32,6 +32,48 @@ This repository contains the main implementation artefacts for my final-year dis
 - **Analysis:** Statistical aggregation, mean, standard deviation and 95% confidence intervals
 - **Visualisation:** Automated result plotting
 - **Development Environment:** Windows, Python virtual environment
+## System Architecture
+
+The project is structured as an end-to-end experimental pipeline:
+
+```text
+Scripted AI Teammate
+        ↓
+Goal / Action State
+        ↓
+Explanation Generator
+        ↓
+Explanation-Aware Proxy Partner
+        ↓
+Overcooked-AI Environment
+        ↓
+Per-Timestep CSV Logs + Run Summary JSON
+        ↓
+Results Aggregation
+        ↓
+Statistical Analysis + Visualisation
+```
+## Experimental Design
+
+The main evaluation used a controlled matched A/B experiment on the `cramped_room` layout.
+
+| Setting | Value |
+| --- | --- |
+| Primary layout | `cramped_room` |
+| Episode horizon | 800 timesteps |
+| Seeds | 30 |
+| Conditions | `exp`, `noexp` |
+| Total main runs | 60 |
+| Explanation mode | Goal + action |
+| Goal-change trigger | Enabled |
+| Event trigger | Enabled |
+
+Each random seed was evaluated under both conditions using the same environment configuration and scripted AI teammate.
+
+- **`exp`** – explanation information was available to the proxy partner.
+- **`noexp`** – no explanation information was provided through that channel.
+
+Each run generated a detailed per-timestep CSV trace and a run-level JSON summary for later aggregation and analysis.
 ## Main files
 
 | File | Purpose |
@@ -41,15 +83,6 @@ This repository contains the main implementation artefacts for my final-year dis
 | `my_scripts/aggregate_results.py` | Aggregates per-run summary JSON files into condition-level results tables |
 | `my_scripts/plot_results.py` | Generates plots from aggregated results |
 | `my_scripts/human_study_runner.py` | Interactive participant-facing runner implemented but not deployed |
-
-## Main evaluation
-
-The final evaluation compares:
-
-- `noexp`: no explanation text provided to the proxy human simulator
-- `exp`: explanation text provided to the proxy human simulator
-
-The primary layout is `cramped_room`.
 
 ## Results
 
