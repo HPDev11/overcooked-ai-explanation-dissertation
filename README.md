@@ -100,6 +100,9 @@ The main evaluation consisted of 30 matched seeded runs per condition on the `cr
 | Productive actions | **178.97 ± 0.90** | 173.17 ± 1.28 |
 
 The explanation-enabled condition produced modest improvements in task throughput and stronger improvements in coordination quality. The clearest result was the reduction in blocked-partner events from 9.17 to 2.10 on average, alongside fewer collisions and slightly lower idle behaviour.
+### Coordination Result
+
+![Blocked-partner events comparison](blocked_partner_comparison.png)
 
 These findings apply to the controlled proxy-simulator evaluation on `cramped_room` and should not be interpreted as direct evidence of improved coordination with real human participants.
 ## Running the Project
