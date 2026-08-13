@@ -153,6 +153,21 @@ python my_scripts/plot_results.py --results_csv results/final_cramped_room/resul
 ```
 
 The plotting script generates condition-level comparison figures and selected per-run scatter plots.
+## Limitations & Future Work
+
+The main evaluation uses a rule-based proxy human simulator rather than real human participants. This enables reproducible, controlled experiments but means the results should not be interpreted as direct evidence of how real users would respond to AI explanations.
+
+The strongest positive results were observed on the `cramped_room` layout. Secondary pilot experiments showed that the current hand-crafted policies do not generalise equally well across all Overcooked-AI environments. In particular, `asymmetric_advantages` produced different performance trends, while the current agents were unable to make meaningful progress on `forced_coordination`.
+
+The explanation mechanism is also template-based and uses a fixed set of goal/action labels and heuristic explanation triggers.
+
+Future work could include:
+
+- Conducting a formal human-participant study using the implemented interactive runner
+- Developing more general or learned partner policies that transfer across layouts
+- Comparing goal-only, action-only and combined explanation strategies
+- Investigating adaptive explanation timing based on uncertainty or coordination risk
+- Evaluating the framework across additional cooperative environments and partner behaviours
 ## Notes
 
 This repository excludes virtual environment files, cache files, unnecessary intermediate development outputs and personal files.
